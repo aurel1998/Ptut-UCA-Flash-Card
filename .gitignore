@@ -1,0 +1,16 @@
+# Base de données SQLite
+database/*.db
+database/*.db-journal
+database/*.db-wal
+database/*.db-shm
+
+# Fichiers de test et de développement
+test.php
+verifier_tables.php
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

@@ -1,0 +1,380 @@
+/* Styles pour l'impression */
+@media print {
+    body {
+        background: white;
+        background-image: none;
+    }
+    
+    .print-actions {
+        display: none;
+    }
+    
+    .print-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        background: white;
+        box-shadow: none;
+    }
+    
+    .print-header {
+        text-align: center;
+        margin-bottom: 30px;
+        page-break-after: avoid;
+    }
+    
+    .print-header h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #000;
+    }
+    
+    .deck-description-print {
+        font-size: 14px;
+        color: #333;
+        margin: 10px 0;
+    }
+    
+    .deck-createur-print,
+    .deck-date-print {
+        font-size: 12px;
+        color: #666;
+        margin: 5px 0;
+    }
+    
+    .cartes-print {
+        display: block;
+    }
+    
+    .carte-print {
+        page-break-inside: avoid;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+        padding: 15px;
+        background: white;
+    }
+    
+    .carte-print-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .carte-numero-print {
+        font-weight: bold;
+        color: #007bff;
+    }
+    
+    .carte-type-print {
+        background-color: #6c757d;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 3px;
+        font-size: 12px;
+    }
+    
+    .carte-print-content {
+        margin-top: 15px;
+    }
+    
+    .carte-recto-print,
+    .carte-verso-print {
+        margin-bottom: 15px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-left: 3px solid #007bff;
+    }
+    
+    .carte-recto-print h3,
+    .carte-verso-print h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+        color: #007bff;
+    }
+    
+    .carte-recto-print p,
+    .carte-verso-print p {
+        font-size: 13px;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+    }
+    
+    .carte-choix-print {
+        margin-top: 15px;
+        padding: 10px;
+        background-color: #f8f9fa;
+    }
+    
+    .carte-choix-print h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+        color: #333;
+    }
+    
+    .choix-print-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .choix-print-list li {
+        padding: 8px 0;
+        font-size: 13px;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .checkbox-print {
+        font-size: 16px;
+        display: inline-block;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .carte-reponses-correctes-print {
+        margin-top: 15px;
+        padding: 10px;
+        background-color: #d4edda;
+        border-left: 3px solid #28a745;
+    }
+    
+    .carte-reponses-correctes-print h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+        color: #155724;
+    }
+    
+    .carte-reponses-correctes-print ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .carte-reponses-correctes-print li {
+        padding: 5px 0;
+        font-size: 13px;
+        color: #155724;
+    }
+    
+    .choix-correct-print {
+        background-color: #d4edda !important;
+        padding: 5px 10px;
+        border-left: 3px solid #28a745;
+    }
+    
+    .print-footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+        text-align: center;
+        font-size: 11px;
+        color: #666;
+        page-break-inside: avoid;
+    }
+    
+    header,
+    footer,
+    nav,
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger,
+    .btn-success {
+        display: none !important;
+    }
+}
+
+/* Styles pour l'écran (avant impression) */
+.print-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.print-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #007bff;
+}
+
+.print-header h1 {
+    font-size: 32px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.deck-description-print {
+    font-size: 16px;
+    color: #555;
+    margin: 15px 0;
+}
+
+.deck-createur-print,
+.deck-date-print {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.cartes-print {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.carte-print {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    page-break-inside: avoid;
+}
+
+.carte-print-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.carte-numero-print {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 14px;
+}
+
+.carte-type-print {
+    background-color: #6c757d;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.carte-print-content {
+    margin-top: 15px;
+}
+
+.carte-recto-print,
+.carte-verso-print {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: white;
+    border-left: 4px solid #007bff;
+    border-radius: 5px;
+}
+
+.carte-recto-print h3,
+.carte-verso-print h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.carte-recto-print p,
+.carte-verso-print p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+    margin: 0;
+}
+
+.carte-choix-print {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.carte-choix-print h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.choix-print-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.choix-print-list li {
+    padding: 10px 0;
+    font-size: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkbox-print {
+    font-size: 18px;
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+    color: #007bff;
+}
+
+.carte-reponses-correctes-print {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #d4edda;
+    border-left: 4px solid #28a745;
+    border-radius: 5px;
+}
+
+.carte-reponses-correctes-print h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #155724;
+}
+
+.carte-reponses-correctes-print ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.carte-reponses-correctes-print li {
+    padding: 8px 0;
+    font-size: 15px;
+    color: #155724;
+    font-weight: 500;
+}
+
+.choix-correct-print {
+    background-color: #d4edda;
+    padding: 8px 12px;
+    border-left: 3px solid #28a745;
+    border-radius: 3px;
+    margin: 5px 0;
+}
+
+.print-footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px solid #ddd;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+
+.print-actions {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+

@@ -1,0 +1,11 @@
+# Configuration Apache pour le projet
+DirectoryIndex index.php index.html
+
+# Activer le moteur de réécriture
+RewriteEngine On
+
+# Rediriger vers index.php si le fichier n'existe pas
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+
