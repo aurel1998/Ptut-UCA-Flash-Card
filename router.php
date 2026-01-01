@@ -30,7 +30,7 @@ if (in_array($extension, $extensions_statiques)) {
     return false; // Laisser PHP servir le fichier statique
 }
 
-// Sinon, servir index.php
+// Sinon, servir index.php (pour le routing MVC)
 if (file_exists(__DIR__ . '/index.php')) {
     require_once __DIR__ . '/index.php';
     return true;
@@ -40,4 +40,3 @@ if (file_exists(__DIR__ . '/index.php')) {
 http_response_code(404);
 echo "404 - Fichier non trouvé";
 return true;
-

@@ -157,6 +157,38 @@ try {
     $connexion->exec("CREATE INDEX IF NOT EXISTS idx_filiere_annee ON assignations_decks(filiere, annee)");
     echo "✓ Table 'assignations_decks' créée\n";
     
+    // Table des sessions de révision
+    $connexion->exec("
+        CREATE TABLE IF NOT EXISTS sessions_revision (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            utilisateur_id INTEGER NOT NULL,
+            deck_id INTEGER NULL,
+            date_debut DATETIME DEFAULT CURRENT_TIMESTAMP,
+            date_fin DATETIME NULL,
+            duree_secondes INTEGER NULL,
+            nombre_cartes INTEGER DEFAULT 0,
+            nombre_correctes INTEGER DEFAULT 0,
+            nombre_incorrectes INTEGER DEFAULT 0,
+            taux_succes REAL NULL,
+            statut TEXT CHECK(statut IN ('en_cours', 'terminee', 'abandonnee')) DEFAULT 'en_cours',
+            FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE,
+            FOREIGN KEY (deck_id) REFERENCES decks(id) ON DELETE CASCADE
+        )
+    ");
+    $connexion->exec("CREATE INDEX IF NOT EXISTS idx_utilisateur_session ON sessions_revision(utilisateur_id)");
+    $connexion->exec("CREATE INDEX IF NOT EXISTS idx_deck_session ON sessions_revision(deck_id)");
+    $connexion->exec("CREATE INDEX IF NOT EXISTS idx_statut_session ON sessions_revision(statut)");
+    echo "✓ Table 'sessions_revision' créée\n";
+    
+    // Ajouter session_id à historique_revisions si elle n'existe pas
+    try {
+        $connexion->exec("ALTER TABLE historique_revisions ADD COLUMN session_id INTEGER NULL");
+        $connexion->exec("CREATE INDEX IF NOT EXISTS idx_session_hist ON historique_revisions(session_id)");
+        echo "✓ Colonne 'session_id' ajoutée à 'historique_revisions'\n";
+    } catch (PDOException $e) {
+        // La colonne existe peut-être déjà, on ignore l'erreur
+    }
+    
     echo "\n✅ Base de données initialisée avec succès !\n";
     echo "Le fichier de base de données se trouve dans : database/projet_tutore.db\n";
     

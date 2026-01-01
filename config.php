@@ -58,7 +58,7 @@ function obtenirUtilisateurConnecte() {
 // Fonction pour rediriger si non connecté
 function redirigerSiNonConnecte() {
     if (!estConnecte()) {
-        header('Location: login.php');
+        header('Location: /index.php?controller=auth&action=login');
         exit;
     }
 }
@@ -68,7 +68,7 @@ function redirigerSiNonEtudiant() {
     redirigerSiNonConnecte();
     $utilisateur = obtenirUtilisateurConnecte();
     if ($utilisateur['role'] !== 'etudiant') {
-        header('Location: dashboard.php');
+        header('Location: /index.php?controller=dashboard&action=index');
         exit;
     }
 }
@@ -78,7 +78,7 @@ function redirigerSiNonEnseignant() {
     redirigerSiNonConnecte();
     $utilisateur = obtenirUtilisateurConnecte();
     if ($utilisateur['role'] !== 'enseignant') {
-        header('Location: dashboard.php');
+        header('Location: /index.php?controller=dashboard&action=index');
         exit;
     }
 }
