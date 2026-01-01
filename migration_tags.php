@@ -121,8 +121,7 @@ try {
     ");
     echo "✓ Table 'meta_tags_tags' créée\n";
     
-    // 9. Supprimer la colonne deck_id de cartes (maintenant dans cartes_decks)
-    // On garde deck_id pour compatibilité mais on ne l'utilisera plus
+    // 9. Supprimer la colonne deck_id de cartes 
     
     echo "\n✅ Migration terminée avec succès !\n";
     
